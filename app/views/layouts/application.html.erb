@@ -9,6 +9,103 @@
   </head>
 
   <body>
+    <!-- User Nav Bar -->
+    <div class="ui secondary menu">
+      <a class="item">
+        <img alt="PROJ">
+      </a>
+      <a class="browse item">
+        Add new item
+        <i class="dropdown icon"></i>
+      </a>
+      <% if @current_user %>
+      <a class="ui right dropdown item">
+        Username
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">anything</div>
+          <div class="item">whatever</div>
+          <div class="ui horizontal divider">
+
+          <div class="item">Log Out</div>
+          </div>
+        </div>
+      </a>
+      <% else %>
+      <a class="ui right item" id='log-in'>
+        Log In
+      </a>
+      <a class="ui item" id="sign-up">Sign Up</a>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
+
+
+
+
+
+<!-- MODALS -->
+<div class="ui coupled modal login">
+  <i class="close icon"></i>
+  <div class="header">
+    Log In
+  </div>
+  <div class="content">
+    <form class="ui form" id="submit-login" action="/login" method="POST">
+      <div class="field">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="gambler@huat.ah">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="password">
+      </div>
+  </div>
+  <div class="actions">
+    <button class="ui button right floated" type="submit">Submit</button>
+  </form>
+  <button class="ui button" id="sign-up">Sign Up</button>
+  </div>
+</div>
+
+<div class="ui coupled modal signup" id="sign-up-modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Sign Up
+  </div>
+  <div class="content">
+    <form class="ui form" action="/user_profiles" method="POST">
+      <div class="field">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="gambler@huat.ah">
+      </div>
+      <div class="field">
+        <label>Handphone</label>
+        <input type="integer" name="handphone" placeholder="98765432">
+      </div>
+      <div class="field">
+        <label>First Name</label>
+        <input type="text" name="firstName" placeholder="Phua">
+      </div>
+      <div class="field">
+        <label>Last Name</label>
+        <input type="text" name="lastName" placeholder="KY">
+      </div>
+      <div class="field">
+        <div class="two fields">
+          <div class="field">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Should consist of at least 8 characters">
+          </div>
+          <!-- <div class="field">
+            <label>Confirm Password</label>
+            <input type="password" name="password_confirmation" placeholder="Key in password again to confirm">
+          </div> -->
+        </div>
+      </div>
+    <button class="ui button" type="submit">Submit</button>
+  </form>
+  </div>
+</div>

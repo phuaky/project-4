@@ -12,5 +12,23 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// = require turbolinks
+//= require semantic-ui
 //= require_tree .
+
+$(document).ready(function (){
+  $('.ui.dropdown')
+    .dropdown()
+  ;
+
+  $('.ui.modal')
+  .modal({
+    allowMultiple: false
+  })
+;
+
+$('.ui.modal.login').modal('attach events', '#log-in');
+$('#sign-up-modal').modal('attach events', '#sign-up');
+
+
+})
