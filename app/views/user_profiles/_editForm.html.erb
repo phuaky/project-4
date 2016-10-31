@@ -1,0 +1,20 @@
+<form accept-charset="UTF-8" class="ui form nifty_form" action="/user_profiles/<%= @current_user.id%>" method="POST">
+  <input name="_method" value="patch" type="hidden">
+  <div class="field">
+    <label>Email</label>
+    <span> <%= @current_user.email %> </span>
+  </div>
+  <div class="field">
+    <label>Handphone</label>
+    <input type="integer" name="user_profile[handphone]" value="<%= @current_user.handphone %>" placeholder="98765432">
+  </div>
+  <div class="field">
+    <label>First Name</label>
+    <input type="text" name="user_profile[firstName]" value="<%= @current_user.firstName %>" placeholder="Phua">
+  </div>
+  <div class="field">
+    <label>Last Name</label>
+    <input type="text" name="user_profile[lastName]" value="<%= @current_user.lastName %>" placeholder="KY">
+  </div>
+<button class="ui button" type="submit">Submit</button>
+</form>

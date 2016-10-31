@@ -1,6 +1,16 @@
-<h1>Editing User Profile</h1>
-
-<%= render 'form', user_profile: @user_profile %>
-
-<%= link_to 'Show', @user_profile %> |
-<%= link_to 'Back', user_profiles_path %>
+<div class="ui grid container">
+  <div class="four wide column">
+    <div class="ui vertical fluid tabular menu">
+      <a class="item active" data-tab="profile">Profile</a>
+      <a class="item" data-tab="cards">Cards</a>
+    </div>
+  </div>
+  <div class="twelve wide stretched column" >
+    <div class="ui tab segment active" data-tab="profile">
+      <%= render "editForm" %>
+    </div>
+    <div class="ui tab segment" data-tab="cards">
+      <%= render "charges/new" %>
+    </div>
+  </div>
+</div>

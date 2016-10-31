@@ -1,42 +1,34 @@
-<%= form_for(user_profile) do |f| %>
-  <% if user_profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user_profile.errors.count, "error") %> prohibited this user_profile from being saved:</h2>
-
-      <ul>
-      <% user_profile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="content">
+  <form accept-charset="UTF-8" class="ui form nifty_form" action="/user_profiles" method="POST">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <div class="field">
+      <label>Email</label>
+      <input type="email" name="user_profile[email]" placeholder="gambler@huat.ah">
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.text_field :password %>
-  </div>
-
-  <div class="field">
-    <%= f.label :firstName %>
-    <%= f.text_field :firstName %>
-  </div>
-
-  <div class="field">
-    <%= f.label :lastName %>
-    <%= f.text_field :lastName %>
-  </div>
-
-  <div class="field">
-    <%= f.label :handphone %>
-    <%= f.number_field :handphone %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    <div class="field">
+      <label>Handphone</label>
+      <input type="integer" name="user_profile[handphone]" placeholder="98765432">
+    </div>
+    <div class="field">
+      <label>First Name</label>
+      <input type="text" name="user_profile[firstName]" placeholder="Phua">
+    </div>
+    <div class="field">
+      <label>Last Name</label>
+      <input type="text" name="user_profile[lastName]" placeholder="KY">
+    </div>
+    <div class="field">
+      <div class="two fields">
+        <div class="field">
+          <label>Password</label>
+          <input type="password" name="user_profile[password]" placeholder="Should consist of at least 8 characters">
+        </div>
+        <!-- <div class="field">
+          <label>Confirm Password</label>
+          <input type="password" name="password_confirmation" placeholder="Key in password again to confirm">
+        </div> -->
+      </div>
+    </div>
+  <button class="ui button" type="submit">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+<div class="content">
+  <form accept-charset="UTF-8" class="ui form nifty_form" action="/login" method="POST">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <div class="field">
+      <label>Email</label>
+      <input type="email" name="user[email]" placeholder="gambler@huat.ah">
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" name="user[password]" placeholder="password">
+    </div>
+</div>
+<div class="actions">
+  <button class="ui button right floated" type="submit">Submit</button>
+  </form>
+  <button class="ui button" id="sign-up">Sign Up</button>
+</div>

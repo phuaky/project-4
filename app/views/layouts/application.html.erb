@@ -6,34 +6,42 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">Stripe.setPublishableKey('pk_test_i6yMwIhsd7HAJqXFyvHxhJDb');</script>
   </head>
 
   <body>
     <!-- User Nav Bar -->
     <div class="ui secondary menu">
-      <a class="item">
+      <a class="item" href="/">
         <img alt="PROJ">
       </a>
       <a class="browse item">
         Add new item
         <i class="dropdown icon"></i>
       </a>
+
+      <a class="item">
+        <i class="stripe icon"></i>
+      </a>
+      <a class="item">
+        <i class="talk icon"></i>
+      </a>
       <% if @current_user %>
-      <a class="ui right dropdown item">
-        Username
+      <div class="ui right dropdown item">
+        <%= @current_user.firstName %>
         <i class="dropdown icon"></i>
         <div class="menu">
-          <div class="item">anything</div>
-          <div class="item">whatever</div>
-          <div class="ui horizontal divider">
-
-          <div class="item">Log Out</div>
-          </div>
+          <a class="item" href="/user_profiles/<%= @current_user.id %>/edit ">Settings</a>
+          <a class="item">whatever</a>
+          <div class="ui divider"></div>
+          <a href="/logout" rel="nofollow" data-method="delete" class="item"><i class="sign out icon"></i> Log Out</a>
         </div>
-      </a>
+      </div>
       <% else %>
       <a class="ui right item" id='log-in'>
         Log In
+        <i class="sign in icon"></i>
       </a>
       <a class="ui item" id="sign-up">Sign Up</a>
       <% end %>
@@ -52,22 +60,7 @@
   <div class="header">
     Log In
   </div>
-  <div class="content">
-    <form class="ui form" id="submit-login" action="/login" method="POST">
-      <div class="field">
-        <label>Email</label>
-        <input type="email" name="email" placeholder="gambler@huat.ah">
-      </div>
-      <div class="field">
-        <label>Password</label>
-        <input type="password" name="password" placeholder="password">
-      </div>
-  </div>
-  <div class="actions">
-    <button class="ui button right floated" type="submit">Submit</button>
-  </form>
-  <button class="ui button" id="sign-up">Sign Up</button>
-  </div>
+    <%= render "sessions/form" %>
 </div>
 
 <div class="ui coupled modal signup" id="sign-up-modal">
@@ -75,37 +68,5 @@
   <div class="header">
     Sign Up
   </div>
-  <div class="content">
-    <form class="ui form" action="/user_profiles" method="POST">
-      <div class="field">
-        <label>Email</label>
-        <input type="email" name="email" placeholder="gambler@huat.ah">
-      </div>
-      <div class="field">
-        <label>Handphone</label>
-        <input type="integer" name="handphone" placeholder="98765432">
-      </div>
-      <div class="field">
-        <label>First Name</label>
-        <input type="text" name="firstName" placeholder="Phua">
-      </div>
-      <div class="field">
-        <label>Last Name</label>
-        <input type="text" name="lastName" placeholder="KY">
-      </div>
-      <div class="field">
-        <div class="two fields">
-          <div class="field">
-            <label>Password</label>
-            <input type="password" name="password" placeholder="Should consist of at least 8 characters">
-          </div>
-          <!-- <div class="field">
-            <label>Confirm Password</label>
-            <input type="password" name="password_confirmation" placeholder="Key in password again to confirm">
-          </div> -->
-        </div>
-      </div>
-    <button class="ui button" type="submit">Submit</button>
-  </form>
-  </div>
+  <%= render "user_profiles/form" %>
 </div>
