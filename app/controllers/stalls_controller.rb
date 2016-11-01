@@ -1,6 +1,7 @@
 class StallsController < ApplicationController
 
   def index
+    @stall_seafood = AllSeafoodStock.where("stall_id = #{@stall_owner.id}").order("updated_at DESC")
   end
 
   def new

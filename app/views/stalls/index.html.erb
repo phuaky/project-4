@@ -1,0 +1,26 @@
+<h1>Stall Dashboard</h1>
+<div class="ui grid">
+  <div class="four wide column"></div>
+  <div class="four wide column"></div>
+  <div class="four wide column"></div>
+  <div class="four wide column"></div>
+</div>
+
+  <div class="ui horizontal segments">
+    <div class="ui segment">
+      <p></p>
+    </div>
+    <div class="ui segment">
+      <p></p>
+    </div>
+    <div class="ui segment">
+      <p></p>
+    </div>
+    <div class="ui segment">
+      <p></p>
+    </div>
+  </div>
+
+<% @stall_seafood.each do |seafood| %>
+  <%= seafood.fish_id.english %>
+<% end %>

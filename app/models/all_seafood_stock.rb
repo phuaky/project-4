@@ -9,10 +9,10 @@ class AllSeafoodStock < ApplicationRecord
   # validates :fish_id,
   # presence: true
 
-  validates :volume_kg,
-  presence: true
-
-  validates :price_dollarsPerKg,
-  presence: true
+  # validates :volume_kg,
+  # presence: true
+  #
+  # validates :price_dollarsPerKg,
+  # presence: true
 
 end
