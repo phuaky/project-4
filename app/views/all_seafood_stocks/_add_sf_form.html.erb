@@ -12,19 +12,16 @@
       </button>
     </div>
     <div id="addFishForm">
-      <% $i = 0%>
-      <% $num = 1 %>
-      <%while $i < $num  do%>
-      <div id="fishFormTemplate" class="two fields">
+      <div class="two fields">
         <div class="field">
           <label>Fish Name</label>
           <div class="ui floating fluid dropdown labeled search icon button" name="seafood[fish_id]">
             <i class="icon">fish</i>
             <span class="text">Select Fish</span>
             <div class="menu">
-              <div class="item">Arabic</div>
-              <div class="item">Chinese</div>
-              <div class="item">Vietnamese</div>
+              <% @fishes.each do |fish| %>
+                <div class="item"><%= fish.english %></div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -42,9 +39,36 @@
         </div>
         <i class="remove_field remove icon"></i>
       </div>
-
-      <%$i +=1%>
-      <%end %>
     </div>
   </form>
+</div>
+
+<div id="fishFormTemplate" style="visibility: hidden">
+  <div class="two fields">
+    <div class="field">
+      <label>Fish Name</label>
+      <div class="ui floating fluid dropdown labeled search icon button" name="seafood[fish_id]">
+        <i class="icon">fish</i>
+        <span class="text">Select Fish</span>
+        <div class="menu">
+          <% @fishes.each do |fish| %>
+            <div class="item"><%= fish.english %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <div class="two fields">
+        <div class="field">
+          <label>Qty(kg)</label>
+          <input type="number" name="seafood[quantity]" placeholder="in kilos">
+        </div>
+        <div class="field">
+          <label>Price $$/kg</label>
+          <input type="number" name="seafood[price]" placeholder="in SGD">
+        </div>
+      </div>
+    </div>
+    <i class="remove_field remove icon"></i>
+  </div>
 </div>
