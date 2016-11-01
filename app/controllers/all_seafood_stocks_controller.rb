@@ -7,9 +7,11 @@ class AllSeafoodStocksController < ApplicationController
   end
 
   def create
+    puts ">>> #{seafood_params}"
     @seafood = AllSeafoodStock.new(seafood_params)
+    puts "thiss the seafood params: #{@seafood}"
 
-    if @seafood.save
+    if @seafood.save!
       flash[:success] = "Fishie Added"
       redirect_to root_path
     else
@@ -38,6 +40,6 @@ class AllSeafoodStocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def seafood_params
-      params.require(:seafood).permit(:fish_id, :quantity, :price)
+      params.require(:seafood).permit(:stall_id, :fish_id, :volume_kg, :price_dollarsPerKg)
     end
 end

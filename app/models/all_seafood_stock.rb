@@ -1,13 +1,13 @@
 class AllSeafoodStock < ApplicationRecord
-  belongs_to :stall
-  belongs_to :recorded_trade
-  belongs_to :fish
+  has_many :stall
+  has_many :recorded_trade
+  has_many :fish
 
-  validates :stall_id,
-  presence: true
-
-  validates :fish_id,
-  presence: true
+  # validates :stall_id,
+  # presence: true
+  #
+  # validates :fish_id,
+  # presence: true
 
   validates :volume_kg,
   presence: true

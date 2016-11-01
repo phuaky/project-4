@@ -1,6 +1,6 @@
 class RecordedTrade < ApplicationRecord
   belongs_to :customer
-  has_many :all_seafood_stocks
+  belongs_to :all_seafood_stocks
   belongs_to :stall
   belongs_to :fish
 

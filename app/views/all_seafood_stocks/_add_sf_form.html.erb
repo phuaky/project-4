@@ -1,6 +1,7 @@
 <div class="ui center aligned grid">
   <form accept-charset="UTF-8" class="ui form nifty_form" action="/all_seafood_stocks" method="POST">
     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <input type="hidden" name="seafood[stall_id]" value="<%= @stall_owner.id%>">
     <div class="field">
       <button class="ui fluid button">
         Submit
@@ -15,12 +16,13 @@
       <div class="two fields">
         <div class="field">
           <label>Fish Name</label>
-          <div class="ui floating fluid dropdown labeled search icon button" name="seafood[fish_id]">
+          <div class="ui floating fluid dropdown labeled search icon button" >
             <i class="icon">fish</i>
+            <input type="hidden" name="seafood[fish_id]" value="">
             <span class="text">Select Fish</span>
             <div class="menu">
               <% @fishes.each do |fish| %>
-                <div class="item"><%= fish.english %></div>
+                <div class="item" data-value="<%= fish.id %>"><%= fish.english + " // " + fish.malay + " // " + fish.chinese%></div>
               <% end %>
             </div>
           </div>
@@ -29,11 +31,11 @@
           <div class="two fields">
             <div class="field">
               <label>Qty(kg)</label>
-              <input type="number" name="seafood[quantity]" placeholder="in kilos">
+              <input type="number" name="seafood[volume_kg]" placeholder="in kilos">
             </div>
             <div class="field">
               <label>Price $$/kg</label>
-              <input type="number" name="seafood[price]" placeholder="in SGD">
+              <input type="number" name="seafood[price_dollarsPerKg]" placeholder="in SGD">
             </div>
           </div>
         </div>
@@ -47,12 +49,13 @@
   <div class="two fields">
     <div class="field">
       <label>Fish Name</label>
-      <div class="ui floating fluid dropdown labeled search icon button" name="seafood[fish_id]">
+      <div class="ui floating fluid dropdown labeled search icon button" >
         <i class="icon">fish</i>
+        <input type="hidden" name="seafood[fish_id]" value="">
         <span class="text">Select Fish</span>
         <div class="menu">
           <% @fishes.each do |fish| %>
-            <div class="item"><%= fish.english %></div>
+            <div class="item" data-value="<%= fish.id %>"><%= fish.english + " // " + fish.malay + " // " + fish.chinese%></div>
           <% end %>
         </div>
       </div>
@@ -61,11 +64,11 @@
       <div class="two fields">
         <div class="field">
           <label>Qty(kg)</label>
-          <input type="number" name="seafood[quantity]" placeholder="in kilos">
+          <input type="number" name="seafood[volume_kg]" placeholder="in kilos">
         </div>
         <div class="field">
           <label>Price $$/kg</label>
-          <input type="number" name="seafood[price]" placeholder="in SGD">
+          <input type="number" name="seafood[price_dollarsPerKg]" placeholder="in SGD">
         </div>
       </div>
     </div>
