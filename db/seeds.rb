@@ -28,3 +28,23 @@ fish = Fish.find_or_create_by!(english: 'Dorab') do |fish|
   fish.chinese = '西刀'
   fish.image = 'Dorab_vh5u7i'
 end
+fish = Fish.find_or_create_by!(english: 'Threadfin') do |fish|
+  fish.malay = 'Kurau'
+  fish.chinese = '马鲅'
+  fish.image = 'Threadfin_hnvkve'
+end
+fish = Fish.find_or_create_by!(english: 'Black Pomfret') do |fish|
+  fish.malay = 'Bawal Hitam'
+  fish.chinese = '黑鲳'
+  fish.image = 'Black_Pomfret_sei0xw'
+end
+fish = Fish.find_or_create_by!(english: 'Lobster') do |fish|
+  fish.malay = 'Udang Karang'
+  fish.chinese = '龙虾'
+  fish.image = 'Lobster_k30pc0'
+end
+fish = Fish.find_or_create_by!(english: 'Sea Bream') do |fish|
+  fish.malay = 'Kerisi'
+  fish.chinese = '红哥里'
+  fish.image = 'Sea_Bream_cqjuxa'
+end

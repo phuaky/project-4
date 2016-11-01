@@ -1,0 +1,14 @@
+<form accept-charset="UTF-8" class="ui form nifty_form" action="/stalls" method="POST">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+  <input type="hidden" name="stall[user_profile_id]" value="<%= @current_user.id %>">
+  <div class="field">
+    <label>Stall Name</label>
+    <input type="text" name="stall[name]" placeholder="Stall Name">
+  </div>
+  <div class="field">
+    <label>Owner Name</label>
+    <input type="text" readonly="" name="stall[owner]" value="<%= @current_user.firstName + ' ' + @current_user.lastName %>">
+  </div>
+  <button class="ui button" type="submit">Submit</button>
+</form>

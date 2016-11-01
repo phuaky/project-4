@@ -27,8 +27,10 @@ class UserProfilesController < ApplicationController
     @user_profile = UserProfile.new(user_profile_params)
 
     if @user_profile.save
+      flash[:success] = "User Created!!"
       redirect_to root_path
     else
+      flash[:danger] = "Signup Fail!!"
       redirect_to root_path
     end
   end

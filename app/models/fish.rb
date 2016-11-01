@@ -1,5 +1,5 @@
 class Fish < ApplicationRecord
-  has_many :stalls
+  belongs_to :stalls
   has_many :recorded_trades
   has_many :all_seafood_stocks
 

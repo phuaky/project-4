@@ -1,5 +1,4 @@
-class StallsController < ApplicationController
-
+class AllSeafoodStockController < ApplicationController
   def index
   end
 
@@ -10,11 +9,11 @@ class StallsController < ApplicationController
   def create
     @stall = Stall.new(stall_params)
 
-    if @stall.save!
-      flash[:success] = "Stall Created"
+    if @stall.save
+      flash[:success] = "Fish Added"
       redirect_to root_path
     else
-      flash[:danger] = "Stall Failed to upload!!"
+      flash[:danger] = "Fish Failed to upload!!"
       redirect_to root_path
     end
   end
@@ -39,6 +38,6 @@ class StallsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stall_params
-      params.require(:stall).permit(:user_profile_id, :name, :owner)
+      params.require(:stall).permit(:fish_id, :quantity, :price)
     end
 end
