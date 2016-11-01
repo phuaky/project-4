@@ -1,4 +1,4 @@
-class RecordedTradeController < ApplicationController
+class RecordedTradesController < ApplicationController
   def index
   end
 

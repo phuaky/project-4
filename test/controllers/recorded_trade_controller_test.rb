@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RecordedTradeControllerTest < ActionDispatch::IntegrationTest
+class RecordedTradesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get recorded_trade_index_url
     assert_response :success

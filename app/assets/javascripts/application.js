@@ -57,12 +57,12 @@ $(document).on('turbolinks:load', function() {
 
     var wrapper = $("#addFishForm"); //Fields wrapper
     var add_button = $("#addFish"); //Add button ID
-    var fishForm = '<div class="two fields"> <div class="field"> <label>Fish Name</label> <div class="ui floating fluid dropdown labeled search icon button"> <i class="icon">fish</i> <span class="text">Select Fish</span> <div class="menu"> <div class="item">Arabic</div> <div class="item">Chinese</div> <div class="item">Vietnamese</div> </div> </div> </div> <div class="field"> <div class="two fields"> <div class="field"> <label>Qty(kg)</label> <input type="number" name="fish[quantity]" placeholder="in kilos"> </div> <div class="field"> <label>Price $$/kg</label> <input type="number" name="fish[price]" placeholder="in SGD"> </div> </div> </div> <i class="remove_field remove icon"></i> </div>'
-
+    var fishForm = $('#fishFormTemplate')
 
     $(add_button).click(function(e){ //on add input button click
         e.preventDefault();
-        $(wrapper).prepend(fishForm); //add input box
+
+        $(wrapper).prepend(fishForm[0].innerHTML); //add input box
         $('.ui.dropdown')
           .dropdown()
         ;
