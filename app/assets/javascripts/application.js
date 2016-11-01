@@ -55,7 +55,24 @@ $(document).on('turbolinks:load', function() {
       return false;
     });
 
-})
+    var wrapper = $("#addFishForm"); //Fields wrapper
+    var add_button = $("#addFish"); //Add button ID
+    var fishForm = '<div class="two fields"> <div class="field"> <label>Fish Name</label> <div class="ui floating fluid dropdown labeled search icon button"> <i class="icon">fish</i> <span class="text">Select Fish</span> <div class="menu"> <div class="item">Arabic</div> <div class="item">Chinese</div> <div class="item">Vietnamese</div> </div> </div> </div> <div class="field"> <label>Qty</label> <input type="text" name="fish[quantity]" placeholder="in kilos"> </div> <i class="remove_field remove icon"></i></div>'
+
+
+    $(add_button).click(function(e){ //on add input button click
+        e.preventDefault();
+        $(wrapper).append(fishForm); //add input box
+        $('.ui.dropdown')
+          .dropdown()
+        ;
+    });
+
+    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove();
+    })
+
+})//END of Document Ready
 
 function stripeResponseHandler(status, response) {
   // Grab the form:

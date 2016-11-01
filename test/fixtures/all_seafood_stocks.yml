@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stall_id: 1
+  fish_id: 1
+  volume.kg: 1
+  price.$/kg: 1
+
+two:
+  stall_id: 1
+  fish_id: 1
+  volume.kg: 1
+  price.$/kg: 1

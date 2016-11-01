@@ -49,3 +49,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 gem 'stripe'
+
+# Use Cloudinary to upload images in Rails.
+gem 'cloudinary'
+
+gem 'rails-erd'

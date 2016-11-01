@@ -1,1 +1,53 @@
 <h1 style='text-align: center;'>Hi this is the home page</h1>
+
+<div class="ui four stackable cards" style="margin:10px">
+  <% @fishes.each do |fish| %>
+  <div class="ui fluid card" id="fish-card">
+    <div class="image">
+      <%= cl_image_tag(fish.image) %>
+    </div>
+    <div class="content">
+      <a class="header"><%= fish.english %> | <%= fish.malay %> | <%= fish.chinese %></a>
+      <div class="meta">
+        <span class="volume">Volume</span>
+        <span class="volume">$$/kg</span>
+      </div>
+      <div class="ui bottom attached button">
+      <i class="add to cart icon"></i>
+      Add Tambah 加
+    </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<div class="ui center aligned grid">
+  <form class="ui form">
+    <div id="addFishForm">
+      <div class="two fields">
+        <div class="field">
+          <label>Fish Name</label>
+          <div class="ui floating fluid dropdown labeled search icon button">
+            <i class="icon">fish</i>
+            <span class="text">Select Fish</span>
+            <div class="menu">
+              <div class="item">Arabic</div>
+              <div class="item">Chinese</div>
+              <div class="item">Vietnamese</div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Qty</label>
+          <input type="text" name="fish[quantity]" placeholder="in kilos">
+        </div>
+        <i class="remove_field remove icon"></i>
+      </div>
+    </div>
+
+    <div class="field">
+      <button class="ui fluid button" id="addFish">
+        <i class="add square icon"></i>
+      </button>
+    </div>
+  </form>
+</div>

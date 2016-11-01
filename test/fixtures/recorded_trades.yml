@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  store_id: 1
+  fish_id: 1
+  sell.kg: 1
+  price.$/kg: 1
+  net_amt: 1
+
+two:
+  store_id: 1
+  fish_id: 1
+  sell.kg: 1
+  price.$/kg: 1
+  net_amt: 1

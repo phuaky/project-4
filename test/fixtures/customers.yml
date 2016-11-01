@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_profile_id: 1
+  fish_id: 1
+  qty-kg: 1
+  price-$/kg: 1
+  net_amt: 1
+
+two:
+  user_profile_id: 1
+  fish_id: 1
+  qty-kg: 1
+  price-$/kg: 1
+  net_amt: 1

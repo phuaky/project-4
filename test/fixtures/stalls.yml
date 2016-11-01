@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  owner: MyString
+  credibility: MyString
+  quality: MyString
+  qtyUploaded.kg: 1
+  qtySold.kg: 1
+
+two:
+  name: MyString
+  owner: MyString
+  credibility: MyString
+  quality: MyString
+  qtyUploaded.kg: 1
+  qtySold.kg: 1

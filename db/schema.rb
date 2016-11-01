@@ -10,10 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161029145756) do
+ActiveRecord::Schema.define(version: 20161101012004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "all_seafood_stocks", force: :cascade do |t|
+    t.integer  "stall_id"
+    t.integer  "fish_id"
+    t.integer  "volume_kg"
+    t.integer  "price_dollarsPerKg"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.integer  "user_profile_id"
+    t.integer  "fish_id"
+    t.integer  "qty_kg"
+    t.integer  "price_dollarsPerKg"
+    t.integer  "net_amt"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "fish", force: :cascade do |t|
+    t.string   "english"
+    t.string   "malay"
+    t.string   "chinese"
+    t.text     "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recorded_trades", force: :cascade do |t|
+    t.integer  "customer_id"
+    t.integer  "stall_id"
+    t.integer  "fish_id"
+    t.integer  "sell_kg"
+    t.integer  "price_dollarsPerKg"
+    t.integer  "net_amt"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "stalls", force: :cascade do |t|
+    t.integer  "user_profile_id"
+    t.string   "name"
+    t.string   "owner"
+    t.string   "credibility"
+    t.string   "quality"
+    t.integer  "qtyUploaded_kg"
+    t.integer  "qtySold_kg"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "user_classes", force: :cascade do |t|
+    t.string   "user_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "user_profiles", force: :cascade do |t|
     t.string   "email"
@@ -21,6 +78,7 @@ ActiveRecord::Schema.define(version: 20161029145756) do
     t.string   "firstName"
     t.string   "lastName"
     t.integer  "handphone"
+    t.integer  "user_class_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
