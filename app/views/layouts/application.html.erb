@@ -45,6 +45,12 @@
         <% end %>
       <% end %>
 
+      <% if @customer %>
+        <a class="ui right item" href="/carts">
+          <i class="in cart icon"></i>
+        </a>
+      <% end %>
+
       <% if @current_user %>
       <div class="ui right dropdown item">
         <%= @current_user.firstName %>
@@ -59,9 +65,6 @@
         </div>
       </div>
       <% else %>
-      <a class="ui right item">
-        <i class="in cart icon"></i>
-      </a>
       <a class="ui right item" id='log-in'>
         Log In
         <i class="sign in icon"></i>

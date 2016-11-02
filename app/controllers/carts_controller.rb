@@ -4,7 +4,7 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    @carts = Cart.where("customer_id = #{@customer.id}").order("updated_at DESC")
   end
 
   # GET /carts/1
@@ -49,8 +49,8 @@ class CartsController < ApplicationController
   # DELETE /carts/1.json
   def destroy
     @cart.destroy
-      redirect_to carts_url, notice: 'Cart was successfully destroyed.'
-      head :no_content
+    flash[:success] = "Item was removed from cart!!"
+    redirect_to carts_url, notice: ''
   end
 
   private
