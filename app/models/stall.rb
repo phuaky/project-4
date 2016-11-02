@@ -1,7 +1,7 @@
 class Stall < ApplicationRecord
   belongs_to :user_profile
   has_many :fishes
-  belongs_to :all_seafood_stocks
+  belongs_to :all_seafood_stock
   has_many :recorded_trades
 
   # validates :user_profile_id,

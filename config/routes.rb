@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :products, only: [:index]
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
+  root to: "products#index"
+
   # get 'recorded_trade/index'
   #
   # get 'recorded_trade/new'
@@ -28,7 +33,7 @@ Rails.application.routes.draw do
   #
   # get 'all_seafood_stock/destroy'
 
-  root 'main#home'
+  # root 'main#home'
 
   get "login" => "sessions#new"
   post "login" => "sessions#create"

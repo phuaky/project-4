@@ -1,7 +1,15 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
   before_action :current_user, :stall_owner
+  helper_method :current_order
 
+  def current_order
+    if !session[:order_id].nil?
+      Order.find(session[:order_id])
+    else
+      Order.new
+    end
+  end
 
   def is_authenticated
     unless current_user
