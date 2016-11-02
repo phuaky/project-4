@@ -10,16 +10,16 @@ class AllSeafoodStocksController < ApplicationController
   def create
     stall_id = params[:seafood][:stall_id]
     fish_ids = params[:seafood][:fish_id]
-    volume_kgs = params[:seafood][:volume_kg]
-    price_dollarsPerKgs = params[:seafood][:price_dollarsPerKg]
+    volumes = params[:seafood][:volume]
+    prices = params[:seafood][:price]
 
     for i in 0..fish_ids.length - 1 do
       puts "#{i} looping"
       @seafood = AllSeafoodStock.new
       @seafood.stall_id = stall_id
       @seafood.fish_id = fish_ids[i]
-      @seafood.volume_kg = volume_kgs[i]
-      @seafood.price_dollarsPerKg = price_dollarsPerKgs[i]
+      @seafood.volume = volumes[i]
+      @seafood.price = prices[i]
       @seafood.save!
     end
 

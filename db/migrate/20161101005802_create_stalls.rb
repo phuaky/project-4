@@ -6,8 +6,8 @@ class CreateStalls < ActiveRecord::Migration[5.0]
       t.string :owner
       t.string :credibility
       t.string :quality
-      t.integer :qtyUploaded_kg
-      t.integer :qtySold_kg
+      t.integer :qtyUploaded
+      t.integer :qtySold
 
       t.timestamps
     end

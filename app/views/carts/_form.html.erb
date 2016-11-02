@@ -1,0 +1,42 @@
+<%= form_for(cart) do |f| %>
+  <% if cart.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cart.errors.count, "error") %> prohibited this cart from being saved:</h2>
+
+      <ul>
+      <% cart.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :customer_id %>
+    <%= f.text_field :customer_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stall_id %>
+    <%= f.text_field :stall_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fish_id %>
+    <%= f.text_field :fish_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :qty %>
+    <%= f.number_field :qty %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

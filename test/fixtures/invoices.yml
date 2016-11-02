@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  purchases_id: MyString
+  customer_id: MyString
+  total: MyString
+
+two:
+  purchases_id: MyString
+  customer_id: MyString
+  total: MyString

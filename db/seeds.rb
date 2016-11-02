@@ -21,6 +21,34 @@ user = UserProfile.find_or_create_by!(email: 'admin@a.com') do |user|
   user.user_class_id = 1
 end
 
+# Create Stall USER
+user = UserProfile.find_or_create_by!(email: 'shop@a.com') do |user|
+  user.password = 'password'
+  user.firstName = 'Shop'
+  user.lastName = 'Fish'
+  user.handphone = 98765431
+  user.user_class_id = 2
+end
+
+# Create Stall
+user = Stall.find_or_create_by!(user_profile_id: 2) do |stall|
+  stall.name = 'FISH SHOPPEE'
+  stall.owner = 'SHOPPEE'
+  stall.credibility = 10
+  stall.quality = 10
+  stall.qtyUploaded = 100
+  stall.qtySold = 100
+end
+
+# Create Customer USER
+user = UserProfile.find_or_create_by!(email: 'nick@rich.com') do |user|
+  user.password = 'password'
+  user.firstName = 'Nick'
+  user.lastName = 'ImRich'
+  user.handphone = 98765431
+  user.user_class_id = 3
+end
+
 # Create all fishes
 fish = Fish.find_or_create_by!(english: 'Dorab') do |fish|
   fish.malay = 'Parang 2'
@@ -47,15 +75,3 @@ fish = Fish.find_or_create_by!(english: 'Sea Bream') do |fish|
   fish.chinese = '红哥里'
   fish.image = 'Sea_Bream_cqjuxa'
 end
-
-
-Product.delete_all
-Product.create! id: 1, name: "Banana", price: 0.49, active: true
-Product.create! id: 2, name: "Apple", price: 0.29, active: true
-Product.create! id: 3, name: "Carton of Strawberries", price: 1.99, active: true
-
-OrderStatus.delete_all
-OrderStatus.create! id: 1, name: "In Progress"
-OrderStatus.create! id: 2, name: "Placed"
-OrderStatus.create! id: 3, name: "Shipped"
-OrderStatus.create! id: 4, name: "Cancelled"
