@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', function () {
     .dropdown();
 
   $('.addToCart').click(function () {
-    $('#cartModal').modal({inverted: true}).modal('show');
+    $('#cartModal'+this.getAttribute('value')).modal({inverted: true}).modal('show');
   });
 
   $('.ui.search')
