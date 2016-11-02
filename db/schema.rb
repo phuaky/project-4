@@ -36,8 +36,6 @@ ActiveRecord::Schema.define(version: 20161102064248) do
 
   create_table "customers", force: :cascade do |t|
     t.integer  "user_profile_id"
-    t.integer  "purchase_id"
-    t.integer  "invoice_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -63,6 +61,7 @@ ActiveRecord::Schema.define(version: 20161102064248) do
     t.string   "invoice_id"
     t.string   "customer_id"
     t.string   "fish_id"
+    t.string   "stall_id"
     t.string   "qty"
     t.string   "price"
     t.datetime "created_at",  null: false

@@ -1,24 +1,27 @@
 <h1 style="text-align: center;">This is your cart!</h1>
-<form action='/carts/<%= @customer.id %>' method='post'>
-  <input type="hidden" name="_method" value="patch">
+<form action='/purchases' method='post'>
   <% if @carts.length > 0 %>
   <div class="field">
     <button type="submit" class="ui yellow button"> CHECK OUT THE FISHIES </button>
   </div>
   <% end %>
 <% @carts.each do |cart| %>
+<input type="hidden" name="purchase[stall_id][]" value="<%= cart.stall_id %>">
+<input type="hidden" name="purchase[customer_id]" value="<%= cart.customer_id %>">
+<input type="hidden" name="purchase[invoice_id]" value="1">
   <div class="ui horizontal segments">
     <div class="ui segment">
       <%= cl_image_tag(cart.fish.image) %>
     </div>
     <div class="ui segment">Fish ID:
       <p><%= cart.fish.english %></p>
+      <input type="hidden" name="purchase[fish_id][]" value="<%= cart.fish.id %>">
     </div>
     <div class="ui segment">Total Volume:
-      <p><%= cart.qty %></p>
+      <input type="number" name="purchase[qty][]" value="<%= cart.qty %>">
     </div>
     <div class="ui segment">Price Set:
-      <p><%= cart.price %></p>
+      <input type="number" name="purchase[price][]" value="<%= cart.price %>">
     </div>
     <div class="ui segment">
       <p><a class="ui red button" href="/carts/<%= cart.id %>" data-method="delete">Delete</a></p>

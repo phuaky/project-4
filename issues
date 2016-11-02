@@ -2,4 +2,6 @@ why drop down need to on load of document? cannot use semantic shortcut?
 //= require semantic-ui/modal
 //= require semantic-ui/dropdown
 
-cannot draw data from join table
+When click on homepage, cannot add submit modal
+
+cannot add invoice

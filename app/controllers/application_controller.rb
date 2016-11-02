@@ -33,4 +33,10 @@ class ApplicationController < ActionController::Base
       @customer ||= Customer.find_by_user_profile_id(@current_user.id)
     end
   end
+
+  def invoice
+    current_invoice_length = Invoice.maximum(:id).next
+    print `length of current invoice = #{current_invoice_length}`
+    @invoice = current_invoice_length
+  end
 end

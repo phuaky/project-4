@@ -48,6 +48,16 @@ user = UserProfile.find_or_create_by!(email: 'nick@rich.com') do |user|
   user.handphone = 98765431
   user.user_class_id = 3
 end
+Customer.find_or_create_by!(user_profile_id: 3)
+
+user = UserProfile.find_or_create_by!(email: 'jon@email.com') do |user|
+  user.password = 'password'
+  user.firstName = 'Jon'
+  user.lastName = 'email'
+  user.handphone = 98765431
+  user.user_class_id = 3
+end
+Customer.find_or_create_by!(user_profile_id: 4)
 
 # Create all fishes
 fish = Fish.find_or_create_by!(english: 'Dorab') do |fish|

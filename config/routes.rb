@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'invoices/new'
+
+  get 'invoices/create'
+
+  get 'invoices/show'
+
+  get 'invoices/index'
+
+  get 'invoices/destroy'
+
+  get 'invoices/update'
+
   root 'main#home'
 
   get "login" => "sessions#new"
