@@ -10,71 +10,74 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
+// = require jquery
+// = require jquery_ujs
 // = require turbolinks
-//= require semantic-ui
-//= require_tree .
+// = require semantic-ui
+// = require_tree .
 
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function () {
+
   $('.ui.dropdown')
-    .dropdown()
-  ;
+    .dropdown();
+
 
   $('.ui.modal')
-  .modal({
-    allowMultiple: false
-  })
-;
+    .modal({
+      allowMultiple: false
+    });
+
+  $('.ui.search')
+    .search({
+      source: content
+    });
+
 
   $('.ui.modal.login').modal('attach events', '#log-in');
   $('#sign-up-modal').modal('attach events', '#sign-up');
 
   $('.ui.menu a.item')
-    .on('click', function() {
+    .on('click', function () {
       $(this)
         .addClass('active')
         .siblings()
-        .removeClass('active')
-      ;
-    })
-
-    $('.menu .item')
-      .tab()
-    ;
-
-    var $form = $('#payment-form');
-    $form.submit(function(event) {
-      // Disable the submit button to prevent repeated clicks:
-      $form.find('.submit').prop('disabled', true);
-
-      // Request a token from Stripe:
-      Stripe.card.createToken($form, stripeResponseHandler);
-
-      // Prevent the form from being submitted:
-      return false;
+        .removeClass('active');
     });
 
-    var wrapper = $("#addFishForm"); //Fields wrapper
-    var add_button = $("#addFish"); //Add button ID
-    var fishForm = $('#fishFormTemplate')
+  $('.menu .item')
+    .tab();
 
-    $(add_button).click(function(e){ //on add input button click
-        e.preventDefault();
 
-        $(wrapper).prepend(fishForm[0].innerHTML); //add input box
-        $('.ui.dropdown')
-          .dropdown()
-        ;
-    });
+  var $form = $('#payment-form');
+  $form.submit(function (event) {
+    // Disable the submit button to prevent repeated clicks:
+    $form.find('.submit').prop('disabled', true);
 
-    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-        e.preventDefault(); $(this).parent('div').remove();
-    })
+    // Request a token from Stripe:
+    Stripe.card.createToken($form, stripeResponseHandler);
 
-})//END of Document Ready
+    // Prevent the form from being submitted:
+    return false;
+  });
 
-function stripeResponseHandler(status, response) {
+  var wrapper = $('#addFishForm'); // Fields wrapper
+  var add_button = $('#addFish'); // Add button ID
+  var fishForm = $('#fishFormTemplate');
+
+  $(add_button).click(function (e) { // on add input button click
+    e.preventDefault();
+
+    $(wrapper).prepend(fishForm[0].innerHTML); // add input box
+    $('.ui.dropdown')
+      .dropdown();
+  });
+
+  $(wrapper).on('click', '.remove_field', function (e) { // user click on remove text
+    e.preventDefault(); $(this).parent('div').remove();
+  });
+}); // END of Document Ready
+
+function stripeResponseHandler (status, response) {
   // Grab the form:
   var $form = $('#payment-form');
 
@@ -95,4 +98,8 @@ function stripeResponseHandler(status, response) {
     // Submit the form:
     $form.get(0).submit();
   }
-};
+}
+
+var content = [
+  { title: 'Andorra' },
+];

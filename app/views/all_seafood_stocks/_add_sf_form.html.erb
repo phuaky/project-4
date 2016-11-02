@@ -20,7 +20,7 @@
             <i class="icon">fish</i>
             <input type="hidden" name="seafood[fish_id][]" value="">
             <span class="text">Select Fish</span>
-            <div class="menu">
+            <div class="menu" id="fishData">
               <% @fishes.each do |fish| %>
                 <div class="item" data-value="<%= fish.id %>"><%= fish.english + " // " + fish.malay + " // " + fish.chinese%></div>
               <% end %>

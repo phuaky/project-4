@@ -1,26 +1,33 @@
-<h1>Stall Dashboard</h1>
+<h1><%= @stall_owner.name %> Dashboard</h1>
 <div class="ui grid">
   <div class="four wide column"></div>
   <div class="four wide column"></div>
   <div class="four wide column"></div>
   <div class="four wide column"></div>
 </div>
+<% @stall_total_volume = 0 %>
+<% @stall_total_volume = 0 %>
 
+<form action='/stalls/<%= @stall_owner.id %>' method='post'>
+  <input type="hidden" name="_method" value="patch">
+<% @stall_seafood.each do |seafood| %>
   <div class="ui horizontal segments">
-    <div class="ui segment">
+    <div class="ui segment">Fish Image:
       <p></p>
     </div>
-    <div class="ui segment">
-      <p></p>
+    <div class="ui segment">Fish ID:
+      <p>  <%= seafood.fish_id %>
+      </p>
     </div>
-    <div class="ui segment">
-      <p></p>
+    <div class="ui segment">Total Volume:
+      <p>  <%= seafood.volume_kg %></p>
+    </div>
+    <div class="ui segment">Price Set:
+      <p><%= seafood.price_dollarsPerKg %></p>
     </div>
     <div class="ui segment">
       <p></p>
     </div>
   </div>
-
-<% @stall_seafood.each do |seafood| %>
-  <%= seafood.fish_id.english %>
 <% end %>
+</form>

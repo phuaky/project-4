@@ -1,7 +1,7 @@
 class AllSeafoodStock < ApplicationRecord
-  has_many :stall
-  has_many :recorded_trade
-  has_many :fish
+  has_many :stalls
+  has_many :recorded_trades
+  has_many :fishes, through: :stalls
 
   # validates :stall_id,
   # presence: true

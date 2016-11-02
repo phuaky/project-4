@@ -8,16 +8,11 @@ class AllSeafoodStocksController < ApplicationController
   end
 
   def create
-    # puts seafood_array_params.inspect
-    # @seafood = AllSeafoodStock.new(seafood_array_params)
-
     stall_id = params[:seafood][:stall_id]
     fish_ids = params[:seafood][:fish_id]
     volume_kgs = params[:seafood][:volume_kg]
     price_dollarsPerKgs = params[:seafood][:price_dollarsPerKg]
 
-
-    # loop though i = 0 until i is length of fish_ids
     for i in 0..fish_ids.length - 1 do
       puts "#{i} looping"
       @seafood = AllSeafoodStock.new
@@ -27,8 +22,6 @@ class AllSeafoodStocksController < ApplicationController
       @seafood.price_dollarsPerKg = price_dollarsPerKgs[i]
       @seafood.save!
     end
-
-    # end loop
 
     flash[:success] = "Fishie Added"
     redirect_to root_path

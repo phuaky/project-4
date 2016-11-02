@@ -1,7 +1,7 @@
 class Fish < ApplicationRecord
-  belongs_to :stalls
+  belongs_to :stall
   has_many :recorded_trades
-  belongs_to :all_seafood_stocks
+  has_many :all_seafood_stocks, through: :stalls
 
   validates :english,
   presence: true
