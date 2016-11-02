@@ -1,6 +1,6 @@
 class Customer < ApplicationRecord
   belongs_to :user_profile
-  has_many :recorded_trades
+  has_many :cart_items
 
   validates :user_profile_id,
   presence: true

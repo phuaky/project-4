@@ -1,9 +1,7 @@
 class RecordedTrade < ApplicationRecord
-  belongs_to :customer
-  belongs_to :all_seafood_stocks
-  belongs_to :stall
-  belongs_to :fish
-
+  has_many :customers
+  has_many :stalls
+  has_many :fishes
 
   validates :customer_id,
   presence: true

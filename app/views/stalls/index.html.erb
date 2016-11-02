@@ -12,16 +12,14 @@
   <input type="hidden" name="_method" value="patch">
 <% @stall_seafood.each do |seafood| %>
   <div class="ui horizontal segments">
-    <div class="ui segment">Fish Image:
-      <p></p>
+    <div class="ui segment">
+      <%= cl_image_tag(seafood.fish.image) %>
     </div>
     <div class="ui segment">Fish ID:
-      <%= seafood.inspect %>
-      <p>  <%= seafood.english %>
-      </p>
+      <p><%= seafood.fish.english %></p>
     </div>
     <div class="ui segment">Total Volume:
-      <p>  <%= seafood.volume_kg %></p>
+      <p><%= seafood.volume_kg %></p>
     </div>
     <div class="ui segment">Price Set:
       <p><%= seafood.price_dollarsPerKg %></p>

@@ -19,7 +19,6 @@ user = UserProfile.find_or_create_by!(email: 'admin@a.com') do |user|
   user.lastName = 'Phua'
   user.handphone = 98765431
   user.user_class_id = 1
-
 end
 
 # Create all fishes
