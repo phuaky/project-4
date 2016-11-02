@@ -36,10 +36,8 @@ ActiveRecord::Schema.define(version: 20161102064248) do
 
   create_table "customers", force: :cascade do |t|
     t.integer  "user_profile_id"
-    t.integer  "fish_id"
-    t.integer  "qty"
-    t.integer  "price"
-    t.integer  "net_amt"
+    t.integer  "purchase_id"
+    t.integer  "invoice_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

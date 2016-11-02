@@ -1,0 +1,14 @@
+Hello this is the new form page
+
+
+<form accept-charset="UTF-8" class="ui form nifty_form" action="/customers" method="POST">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <div class="field">
+    <h1>I AM A CUSTOMER!</h1>
+    <input type="hidden" name="customer[user_profile_id]" value="<%= @current_user.id %>">
+
+  </div>
+  <% if @current_user.user_class_id === 3 %>
+    <button class="ui button" type="submit">Submit</button>
+  <% end %>
+</form>

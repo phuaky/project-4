@@ -8,6 +8,13 @@
   <div class="results"></div>
 </div>
 
+<script>
+var content = [
+  <% @fishes.each do |fish| %>
+    { title: '<%= fish.english %> ' },
+  <% end %>
+];
+</script>
 <div class="ui four stackable cards" style="margin:10px">
   <% @fishes.each do |fish| %>
   <div class="ui fluid card" id="fish-card">
@@ -20,11 +27,40 @@
         <span class="volume">Volume</span>
         <span class="volume">$$/kg</span>
       </div>
-      <div class="ui bottom attached button">
-      <i class="add to cart icon"></i>
-      Add Tambah 加
-    </div>
+      <div class="ui bottom attached button addToCart">
+        <i class="add to cart icon"></i>
+        Add Tambah 加
+      </div>
     </div>
   </div>
+<% if @customer %>
+  <div class="ui modal" id="cartModal">
+    <i class="close icon"></i>
+    <div class="header">
+      Add to Cart
+    </div>
+      <div class="description">
+        <form accept-charset="UTF-8" class="ui form nifty_form" action="/carts" method="POST">
+          <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+          <input type="hidden" name="cart[customer_id]" value="<%= @customer.id %>">
+          <input type="hidden" name="cart[stall_id]" value="1">
+          <input type="hidden" name="cart[fish_id]" value="<%= fish.id %>">
+          <div class="field">
+            <label>Quantity</label>
+            <input type="number" name="cart[qty]">
+          </div>
+          <div class="field">
+            <label>Price</label>
+            <input type="number" name="cart[price]">
+          </div>
+      </div>
+    <div class="actions">
+      <div class="ui button">Cancel</div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+
+  </div>
+<% end %>
   <% end %>
 </div>

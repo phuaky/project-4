@@ -17,21 +17,22 @@
 // = require_tree .
 
 $(document).on('turbolinks:load', function () {
-
   $('.ui.dropdown')
     .dropdown();
 
-
-  $('.ui.modal')
-    .modal({
-      allowMultiple: false
-    });
+  $('.addToCart').click(function () {
+    $('#cartModal').modal({inverted: true}).modal('show');
+  });
 
   $('.ui.search')
     .search({
       source: content
     });
 
+  $('.ui.modal')
+    .modal({
+      allowMultiple: false
+    });
 
   $('.ui.modal.login').modal('attach events', '#log-in');
   $('#sign-up-modal').modal('attach events', '#sign-up');
@@ -46,7 +47,6 @@ $(document).on('turbolinks:load', function () {
 
   $('.menu .item')
     .tab();
-
 
   var $form = $('#payment-form');
   $form.submit(function (event) {
@@ -99,7 +99,3 @@ function stripeResponseHandler (status, response) {
     $form.get(0).submit();
   }
 }
-
-var content = [
-  { title: 'Andorra' },
-];

@@ -35,6 +35,16 @@
         Stall
       </a>
       <% end %>
+
+      <% if @current_user && !@customer %>
+        <% if @current_user.user_class_id == 3 %>
+          <a class="item" href="/customers/new">
+            <i class="add square icon"></i>
+            Validate Customer
+          </a>
+        <% end %>
+      <% end %>
+
       <% if @current_user %>
       <div class="ui right dropdown item">
         <%= @current_user.firstName %>

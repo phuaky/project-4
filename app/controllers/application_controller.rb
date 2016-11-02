@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
-  before_action :current_user, :stall_owner
+  before_action :current_user, :stall_owner, :customer
   helper_method :current_order
 
   def current_order
@@ -25,6 +25,12 @@ class ApplicationController < ActionController::Base
   def stall_owner
     if @current_user
       @stall_owner ||= Stall.find_by_user_profile_id(@current_user.id)
+    end
+  end
+
+  def customer
+    if @current_user
+      @customer ||= Customer.find_by_user_profile_id(@current_user.id)
     end
   end
 end
