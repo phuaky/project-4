@@ -22,4 +22,6 @@ class MainController < ApplicationController
 
   end #home
 
+  def why
+  end
 end

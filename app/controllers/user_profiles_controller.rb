@@ -30,7 +30,7 @@ class UserProfilesController < ApplicationController
       flash[:success] = "User Created!!"
       redirect_to root_path
     else
-      flash[:danger] = "Signup Fail!!"
+      flash[:negative] = "Signup Fail!!"
       redirect_to root_path
     end
   end

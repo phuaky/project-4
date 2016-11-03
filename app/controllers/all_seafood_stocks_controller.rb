@@ -1,4 +1,6 @@
 class AllSeafoodStocksController < ApplicationController
+  before_action :set_seafood, only: [:show, :edit, :update, :destroy]
+
   def index
   end
 
@@ -21,6 +23,14 @@ class AllSeafoodStocksController < ApplicationController
       @seafood.volume = volumes[i]
       @seafood.price = prices[i]
       @seafood.save!
+
+      @stall = Stall.find_by_id(stall_id)
+      @fish = Fish.find_by_id(fish_ids[i])
+
+      @message = Message.new
+      @message.message = "#{@stall.name} added #{volumes[i]}kg of #{@fish.english} at $#{prices[i]}/kg"
+      @message.save!
+
     end
 
     flash[:success] = "Fishie Added"
@@ -38,6 +48,9 @@ class AllSeafoodStocksController < ApplicationController
   end
 
   def destroy
+    @seafood.destroy
+    flash[:success] = "Item was removed from stall!!"
+    redirect_to '/stalls'
   end
 
   private

@@ -11,4 +11,5 @@ class Stall < ApplicationRecord
   #
   # validates :owner,
   # presence: true
+
 end

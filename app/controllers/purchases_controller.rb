@@ -3,7 +3,6 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    # @purchase.invoice_id = @invoice
     cart_ids = params[:purchase][:cart_id]
     invoice_ids = params[:purchase][:invoice_id]
     customer_id = params[:purchase][:customer_id]
@@ -39,7 +38,7 @@ class PurchasesController < ApplicationController
       @cart.destroy
     end
 
-    flash[:success] = "Purchase Added"
+    flash[:success] = "Purchase Completed"
     redirect_to root_path
 
   end

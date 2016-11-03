@@ -80,6 +80,31 @@ if ($("#log-in").length ) {
   $(wrapper).on('click', '.remove_field', function (e) { // user click on remove text
     e.preventDefault(); $(this).parent('div').remove();
   });
+
+  $('.message .close')
+  .on('click', function() {
+    $(this)
+      .closest('.message')
+      .transition('fade')
+    ;
+  })
+;
+  // setInterval(function() {
+  //   $.ajax({
+  //     method: "GET",
+  //     url: "/messages",
+  //     // data: {message: message},
+  //     success: function(data) {
+  //       // console.log(data);
+  //       $('#messages-board').prepend('hello')
+  //     },
+  //     error: function(error) {
+  //       console.log("Error:", error)
+  //     }
+  //   });
+  //
+  // }, 2000); //5 seconds
+
 }); // END of Document Ready
 
 function stripeResponseHandler (status, response) {

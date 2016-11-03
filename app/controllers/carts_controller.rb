@@ -30,7 +30,7 @@ class CartsController < ApplicationController
         flash[:success] = "Added to cart!!"
         redirect_to root_path
       else
-        flash[:danger] = "Failed to add to cart!!"
+        flash[:negative] = "Failed to add to cart!!"
         redirect_to root_path
       end
   end
@@ -39,7 +39,8 @@ class CartsController < ApplicationController
   # PATCH/PUT /carts/1.json
   def update
       if @cart.update(cart_params)
-        redirect_to @cart, notice: 'Cart was successfully updated.'
+        flash[:success] = "Cart was successfully updated!!"
+        redirect_to @cart
       else
         render :edit
       end

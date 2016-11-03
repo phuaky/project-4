@@ -9,7 +9,7 @@ class CustomersController < ApplicationController
       flash[:success] = "Customer Created!!"
       redirect_to root_path
     else
-      flash[:danger] = "Customer Fail!!"
+      flash[:negative] = "Customer creation failed.."
       redirect_to root_path
     end
   end

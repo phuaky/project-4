@@ -1,24 +1,106 @@
-<h1><%= @stall_owner.name %> Dashboard</h1>
+<% volume = 0 %>
+<div class="twelve wide column">
+  <form action='/stalls/<%= @stall_owner.id %>' method='post'>
+    <input type="hidden" name="_method" value="patch">
+    <% @stall_seafood.each do |seafood| %>
+      <div class="ui horizontal segments">
+        <div class="ui segment">
+          <%= cl_image_tag(seafood.fish.image, :width => 100, :height => 150) %>
+        </div>
+        <div class="ui segment">Fish ID:
+          <p><%= seafood.fish.english %></p>
+        </div>
+        <div class="ui segment">Total Volume:
+          <p><%= seafood.volume %></p>
+          <% volume += seafood.volume %>
+        </div>
+        <div class="ui segment">Price Set:
+          <p><%= seafood.price %></p>
+        </div>
+        <div class="ui segment">
+          <p><a class="ui red button" href="/all_seafood_stocks/<%= seafood.id %>" data-method="delete">Delete</a></p>
+        </div>
+      </div>
+    <% end %>
+  </form>
+</div>
 
-<form action='/stalls/<%= @stall_owner.id %>' method='post'>
-  <input type="hidden" name="_method" value="patch">
-  <% @stall_seafood.each do |seafood| %>
-    <div class="ui horizontal segments">
-      <div class="ui segment">
-        <%= cl_image_tag(seafood.fish.image, :width => 100, :height => 150) %>
-      </div>
-      <div class="ui segment">Fish ID:
-        <p><%= seafood.fish.english %></p>
-      </div>
-      <div class="ui segment">Total Volume:
-        <p><%= seafood.volume %></p>
-      </div>
-      <div class="ui segment">Price Set:
-        <p><%= seafood.price %></p>
-      </div>
-      <div class="ui segment">
-        <p></p>
+<div class="four wide column">
+      <div class="ui link cards">
+        <div class="card">
+          <div class="content">
+            <div class="header">
+              <%= @stall_owner.name %>
+              <!-- <div class="ui icon buttons right floated">
+                <button class="ui basic button"><a id='update-store-submit'><i class="edit icon"></i></a></button>
+              </div> -->
+            </div>
+            <div class="meta">
+              <a><%= @stall_owner.owner %> </a>
+            </div>
+            <div class="description">
+              Ratings:
+              <p>
+                <% for i in 0...10 %>
+                  <% if @stall_owner.credibility.to_i > i %>
+                    <i class="yellow star icon"></i>
+                  <% else %>
+                    <i class="empty star icon"></i>
+                  <% end %>
+                <% end %>
+              </p>
+            </div>
+          </div>
+
+          <div class="extra content">
+            <div class="ui center aligned grid">
+                <div class="four wide column">
+                  <div class="ui statistics">
+                    <div class="statistic">
+                      <div class="value">
+                        <% if @stall_owner.quality.to_i > 6 %>
+                          <i class="green smile icon"></i>
+                        <% elsif @stall_owner.quality.to_i > 3 %>
+                          <i class="yellow meh icon"></i>
+                        <% elsif @stall_owner.quality.to_i > 0 %>
+                          <i class="red frown icon"></i>
+                        <% end %>
+                      </div>
+                      <div class="label">
+                        Quality
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="six wide column">
+                  <div class="ui statistics">
+                    <div class="statistic">
+                      <div class="value">
+                        <%= volume %>
+                      </div>kg
+                      <div class="label">
+                        <i class="wait icon"></i>Qty onhand
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="six wide column">
+                  <div class="ui statistics">
+                    <div class="statistic">
+                      <div class="value">
+                          50
+                      </div>,000
+                      <div class="label">
+                        <i class="money icon"></i>Revenue
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  <% end %>
-</form>
+  </div>
+</div>

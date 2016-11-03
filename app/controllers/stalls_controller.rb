@@ -15,7 +15,7 @@ class StallsController < ApplicationController
       flash[:success] = "Stall Created"
       redirect_to root_path
     else
-      flash[:danger] = "Stall Failed to upload!!"
+      flash[:negative] = "Stall Failed to upload!!"
       redirect_to root_path
     end
   end

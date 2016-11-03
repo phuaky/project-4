@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :messages
   get 'invoices/new'
 
   get 'invoices/create'
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   get 'invoices/update'
 
   root 'main#home'
+  get 'why' => "main#why"
 
   get "login" => "sessions#new"
   post "login" => "sessions#create"

@@ -51,6 +51,7 @@
         <div class="menu">
           <% if @current_user.user_class_id == 1 %>
             <a class="item" href="/stalls/new">Create New Stall</a>
+            <a class="item" href="/why">Why use this?</a>
           <% elsif @current_user.user_class_id == 2 %>
             <a class="item" href="/stalls">My Stall</a>
           <% elsif @current_user.user_class_id == 3 %>
