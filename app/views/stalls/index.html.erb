@@ -5,7 +5,7 @@
   <% @stall_seafood.each do |seafood| %>
     <div class="ui horizontal segments">
       <div class="ui segment">
-        <%= cl_image_tag(seafood.fish.image) %>
+        <%= cl_image_tag(seafood.fish.image, :width => 100, :height => 150) %>
       </div>
       <div class="ui segment">Fish ID:
         <p><%= seafood.fish.english %></p>

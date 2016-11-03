@@ -16,11 +16,11 @@ var content = [
 ];
 </script>
 
-<div class="ui four stackable cards" style="margin:10px">
+<div class="ui two stackable cards" style="margin:10px">
   <% @fishes.each do |fish| %>
   <div class="ui fluid card" id="fish-card">
     <div class="image">
-      <%= cl_image_tag(fish.image) %>
+      <%= cl_image_tag(fish.image, :width => 100, :height => 150) %>
     </div>
     <div class="content">
       <a class="header"><%= fish.english %> | <%= fish.malay %> | <%= fish.chinese %></a>
