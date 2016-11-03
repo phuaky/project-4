@@ -39,9 +39,11 @@ class UserProfilesController < ApplicationController
   # PATCH/PUT /user_profiles/1.json
   def update
       if @user_profile.update(user_profile_params)
-        redirect_to @user_profile, notice: 'User profile was successfully updated.'
+        flash[:success] = "User updated!!"
+        redirect_to root_path
       else
-        render :edit
+        flash[:success] = "User failed to update!!"
+        redirect_to root_path
       end
   end
 

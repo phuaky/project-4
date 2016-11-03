@@ -54,3 +54,5 @@ gem 'stripe'
 gem 'cloudinary'
 
 gem 'rails-erd'
+
+gem 'rails_12factor', group: :production
