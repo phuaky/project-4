@@ -15,6 +15,16 @@ class PurchasesController < ApplicationController
 
     for i in 0..fish_ids.length - 1 do
       puts "#{i} looping"
+      # Remove from global stocks
+      # @seafood_stock = AllSeafoodStock.find_by_fish_id(fish_ids[i])
+      # if @seafood_stock.update
+      # if @user_profile.update(user_profile_params)
+      #   redirect_to @user_profile, notice: 'User profile was successfully updated.'
+      # else
+      #   render :edit
+      # end
+
+      # Add to purchased model
       @purchase = Purchase.new
       @purchase.customer_id = customer_id
       @purchase.invoice_id = invoice_ids[i]
@@ -23,6 +33,8 @@ class PurchasesController < ApplicationController
       @purchase.qty = qtys[i]
       @purchase.price = prices[i]
       @purchase.save!
+
+      # Remove all items saved from cart
       @cart = Cart.find(cart_ids[i])
       @cart.destroy
     end
@@ -30,21 +42,6 @@ class PurchasesController < ApplicationController
     flash[:success] = "Purchase Added"
     redirect_to root_path
 
-  end
-
-  def new
-  end
-
-  def edit
-  end
-
-  def show
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
   private

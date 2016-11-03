@@ -1,33 +1,24 @@
 <h1><%= @stall_owner.name %> Dashboard</h1>
-<div class="ui grid">
-  <div class="four wide column"></div>
-  <div class="four wide column"></div>
-  <div class="four wide column"></div>
-  <div class="four wide column"></div>
-</div>
-<% @stall_total_volume = 0 %>
-<% @stall_total_volume = 0 %>
 
 <form action='/stalls/<%= @stall_owner.id %>' method='post'>
   <input type="hidden" name="_method" value="patch">
-  <%= @stall_seafood.inspect %>
-<% @stall_seafood.each do |seafood| %>
-  <div class="ui horizontal segments">
-    <div class="ui segment">
-      <%= cl_image_tag(seafood.fish.image) %>
+  <% @stall_seafood.each do |seafood| %>
+    <div class="ui horizontal segments">
+      <div class="ui segment">
+        <%= cl_image_tag(seafood.fish.image) %>
+      </div>
+      <div class="ui segment">Fish ID:
+        <p><%= seafood.fish.english %></p>
+      </div>
+      <div class="ui segment">Total Volume:
+        <p><%= seafood.volume %></p>
+      </div>
+      <div class="ui segment">Price Set:
+        <p><%= seafood.price %></p>
+      </div>
+      <div class="ui segment">
+        <p></p>
+      </div>
     </div>
-    <div class="ui segment">Fish ID:
-      <p><%= seafood.fish.english %></p>
-    </div>
-    <div class="ui segment">Total Volume:
-      <p><%= seafood.volume %></p>
-    </div>
-    <div class="ui segment">Price Set:
-      <p><%= seafood.price %></p>
-    </div>
-    <div class="ui segment">
-      <p></p>
-    </div>
-  </div>
-<% end %>
+  <% end %>
 </form>
