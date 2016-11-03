@@ -24,18 +24,22 @@ $(document).on('turbolinks:load', function () {
     $('#cartModal'+this.getAttribute('value')).modal({inverted: true}).modal('show');
   });
 
+if(typeof content !=="undefined") {
   $('.ui.search')
     .search({
       source: content
     });
+}
 
   $('.ui.modal')
     .modal({
       allowMultiple: false
     });
 
+if ($("#log-in").length ) {
   $('.ui.modal.login').modal('attach events', '#log-in');
   $('#sign-up-modal').modal('attach events', '#sign-up');
+}
 
   $('.ui.menu a.item')
     .on('click', function () {
@@ -64,7 +68,8 @@ $(document).on('turbolinks:load', function () {
   var add_button = $('#addFish'); // Add button ID
   var fishForm = $('#fishFormTemplate');
 
-  $(add_button).click(function (e) { // on add input button click
+  add_button.click(function (e) { // on add input button click
+
     e.preventDefault();
 
     $(wrapper).prepend(fishForm[0].innerHTML); // add input box

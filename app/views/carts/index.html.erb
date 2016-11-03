@@ -6,6 +6,7 @@
   </div>
   <% end %>
 <% @carts.each do |cart| %>
+<input type="hidden" name="purchase[cart_id][]" value="<%= cart.id %>">
 <input type="hidden" name="purchase[stall_id][]" value="<%= cart.stall_id %>">
 <input type="hidden" name="purchase[customer_id]" value="<%= cart.customer_id %>">
 <input type="hidden" name="purchase[invoice_id]" value="1">

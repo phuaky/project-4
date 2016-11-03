@@ -4,7 +4,7 @@ class PurchasesController < ApplicationController
 
   def create
     # @purchase.invoice_id = @invoice
-
+    cart_ids = params[:purchase][:cart_id]
     invoice_ids = params[:purchase][:invoice_id]
     customer_id = params[:purchase][:customer_id]
     stall_ids = params[:purchase][:stall_id]
@@ -23,6 +23,8 @@ class PurchasesController < ApplicationController
       @purchase.qty = qtys[i]
       @purchase.price = prices[i]
       @purchase.save!
+      @cart = Cart.find(cart_ids[i])
+      @cart.destroy
     end
 
     flash[:success] = "Purchase Added"
