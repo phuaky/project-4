@@ -1,0 +1,16 @@
+New things i learn everyday
+Monday -
+  In dropdown box, able to select data from database model
+  Challenges -
+  render multiple of the dropdown boxes and allow jquery to still work
+
+Tuesday -
+  Add multiple inputs after html added
+  send multiple entries into database with one submit button
+  Send Data from the database model into a script on html.erb
+
+Wednesday -
+  Modelling
+
+Thursday -
+  Learnt how to add functions into model files and use it for the items
