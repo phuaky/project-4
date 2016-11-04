@@ -4,6 +4,12 @@
     <% if @carts.length > 0 %>
     <div class="field">
       <button type="submit" class="ui yellow button"> CHECK OUT THE FISHIES </button>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="Total Amount"
+              data-amount="200000"
+              data-locale="auto">
+      </script>
     </div>
     <% end %>
   <% @carts.each do |cart| %>
@@ -11,7 +17,7 @@
     <input type="hidden" name="purchase[stall_id][]" value="<%= cart.stall_id %>">
     <input type="hidden" name="purchase[customer_id]" value="<%= cart.customer_id %>">
     <input type="hidden" name="purchase[invoice_id]" value="1">
-    
+
     <div class="ui horizontal segments">
       <div class="ui segment">
         <%= cl_image_tag(cart.fish.image) %>
