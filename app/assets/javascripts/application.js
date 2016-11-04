@@ -89,21 +89,23 @@ if ($("#log-in").length ) {
     ;
   })
 ;
-  // setInterval(function() {
-  //   $.ajax({
-  //     method: "GET",
-  //     url: "/messages",
-  //     // data: {message: message},
-  //     success: function(data) {
-  //       // console.log(data);
-  //       $('#messages-board').prepend('hello')
-  //     },
-  //     error: function(error) {
-  //       console.log("Error:", error)
-  //     }
-  //   });
-  //
-  // }, 2000); //5 seconds
+var currentMessageCount = 0;
+  setInterval(function() {
+    $.ajax({
+      method: "GET",
+      url: "/messages",
+      success: function(data) {
+        if (currentMessageCount < data.length - 1) {
+          $('#messages-board').prepend('<li>' + data[data.length - 1].message + '</li>')
+          currentMessageCount = data.length -1
+        }
+      },
+      error: function(error) {
+        console.log("Error:", error)
+      }
+    });
+
+  }, 2000); //5 seconds
 
 }); // END of Document Ready
 
