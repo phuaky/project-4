@@ -36,6 +36,14 @@ class PurchasesController < ApplicationController
       # Remove all items saved from cart
       @cart = Cart.find(cart_ids[i])
       @cart.destroy
+
+      @customer = Customer.find_by_id(customer_id)
+      @user = UserProfile.find_by_id(@customer.user_profile_id)
+      @fish = Fish.find_by_id(fish_ids[i])
+
+      @message = Message.new
+      @message.message = "#{@user.firstName} bought #{qtys[i]}kg of #{@fish.english} at $#{prices[i]}/kg"
+      @message.save!
     end
 
     flash[:success] = "Purchase Completed"
