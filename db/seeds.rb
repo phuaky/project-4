@@ -85,3 +85,60 @@ fish = Fish.find_or_create_by!(english: 'Sea Bream') do |fish|
   fish.chinese = '红哥里'
   fish.image = 'Sea_Bream_cqjuxa'
 end
+
+
+fish = Fish.find_or_create_by!(english: 'Grouper') do |fish|
+  fish.malay = 'Kerapu'
+  fish.chinese = '石斑鱼'
+  fish.image = 'Sea_Bream_cqjuxa'
+end
+fish = Fish.find_or_create_by!(english: 'Grunter') do |fish|
+  fish.malay = 'Grut 2'
+  fish.chinese = '石鲈'
+  fish.image = 'Sea_Bream_cqjuxa'
+end
+fish = Fish.find_or_create_by!(english: 'Crab') do |fish|
+  fish.malay = 'Ketam'
+  fish.chinese = '蟹'
+  fish.image = 'Sea_Bream_cqjuxa'
+end
+fish = Fish.find_or_create_by!(english: 'White Pomfret') do |fish|
+  fish.malay = 'Bawal-Puteh'
+  fish.chinese = '白鲳'
+  fish.image = 'Sea_Bream_cqjuxa'
+end
+fish = Fish.find_or_create_by!(english: 'Prawns') do |fish|
+  fish.malay = 'Udang'
+  fish.chinese = '大虾'
+  fish.image = 'Sea_Bream_cqjuxa'
+end
+fish = Fish.find_or_create_by!(english: 'Cuttle Fish') do |fish|
+  fish.malay = 'Sotong Karang'
+  fish.chinese = '墨斗'
+  fish.image = 'Sea_Bream_cqjuxa'
+end
+fish = Fish.find_or_create_by!(english: 'Sting Ray') do |fish|
+  fish.malay = 'Pari'
+  fish.chinese = '方鱼'
+  fish.image = 'Sea_Bream_cqjuxa'
+end
+fish = Fish.find_or_create_by!(english: 'Sea Bass') do |fish|
+  fish.malay = 'Siakap'
+  fish.chinese = '金目鲈'
+  fish.image = 'Sea_Bream_cqjuxa'
+end
+fish = Fish.find_or_create_by!(english: 'Squid') do |fish|
+  fish.malay = 'Sotong'
+  fish.chinese = '乌贼'
+  fish.image = 'Sea_Bream_cqjuxa'
+end
+fish = Fish.find_or_create_by!(english: 'Horse Mackerel') do |fish|
+  fish.malay = 'Kembong'
+  fish.chinese = '甘望'
+  fish.image = 'Sea_Bream_cqjuxa'
+end
+fish = Fish.find_or_create_by!(english: 'Grey Mullet') do |fish|
+  fish.malay = 'Belanak'
+  fish.chinese = '黑鱼'
+  fish.image = 'Sea_Bream_cqjuxa'
+end
