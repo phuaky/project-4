@@ -1,16 +1,20 @@
-<div class="ui search">
-  <div class="ui icon input">
-    <input class="prompt" type="text" placeholder="Search seafood...">
-    <i class="search icon"></i>
-  </div>
-  <div class="results"></div>
-</div>
-
-<div class="row">
+<!-- Message Board -->
+<div class="row messages" style="overflow:scroll; height:100px;">
+  <h3>Latest Action:</h3>
   <ul id="messages-board">
-
+    <!-- Prepend latest messages here -->
   </ul>
 </div>
+<div class="row">
+  <div class="ui search">
+    <div class="ui icon input">
+      <input class="prompt" type="text" placeholder="Search seafood...">
+      <i class="search icon"></i>
+    </div>
+    <div class="results"></div>
+  </div>
+</div>
+
 
 <script>
 var content = [
@@ -24,7 +28,7 @@ var content = [
   <% @fishes.each do |fish| %>
   <div class="ui fluid card" id="fish-card">
     <div class="image">
-      <%= cl_image_tag(fish.image) %>
+      <%= cl_image_tag(fish.image, :width=>600, :height=>400, :crop=>"fill") %>
     </div>
     <div class="content">
       <a class="header"><%= fish.english %> | <%= fish.malay %> | <%= fish.chinese %></a>

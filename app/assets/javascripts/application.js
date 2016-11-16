@@ -21,25 +21,25 @@ $(document).on('turbolinks:load', function () {
     .dropdown();
 
   $('.addToCart').click(function () {
-    $('#cartModal'+this.getAttribute('value')).modal({inverted: true}).modal('show');
+    $('#cartModal' + this.getAttribute('value')).modal({inverted: true}).modal('show');
   });
 
-if(typeof content !=="undefined") {
-  $('.ui.search')
-    .search({
-      source: content
-    });
-}
+  if (typeof content !== 'undefined') {
+    $('.ui.search')
+      .search({
+        source: content
+      });
+  }
 
   $('.ui.modal')
     .modal({
       allowMultiple: false
     });
 
-if ($("#log-in").length ) {
-  $('.ui.modal.login').modal('attach events', '#log-in');
-  $('#sign-up-modal').modal('attach events', '#sign-up');
-}
+  if ($('#log-in').length) {
+    $('.ui.modal.login').modal('attach events', '#log-in');
+    $('#sign-up-modal').modal('attach events', '#sign-up');
+  }
 
   $('.ui.menu a.item')
     .on('click', function () {
@@ -82,30 +82,43 @@ if ($("#log-in").length ) {
   });
 
   $('.message .close')
-  .on('click', function() {
-    $(this)
-      .closest('.message')
-      .transition('fade')
-    ;
-  })
-;
-var currentMessageCount = 0;
-  setInterval(function() {
-    $.ajax({
-      method: "GET",
-      url: "/messages",
-      success: function(data) {
-        if (currentMessageCount < data.length - 1) {
-          $('#messages-board').prepend('<li>' + data[data.length - 1].message + '</li>')
-          currentMessageCount = data.length -1
-        }
-      },
-      error: function(error) {
-        console.log("Error:", error)
-      }
+    .on('click', function () {
+      $(this)
+        .closest('.message')
+        .transition('fade');
     });
 
-  }, 2000); //5 seconds
+  var currentMessageCount = 0;
+  var currentMessageId;
+  var dataLength;
+  var unshownMsges = 0;
+
+  setInterval(function () {
+    $.ajax({
+      method: 'GET',
+      url: '/messages',
+      success: function (data) {
+        dataLength = data.length;
+        unshownMsges = dataLength - currentMessageId;
+
+        if (unshownMsges !== 0 && currentMessageId !== undefined && currentMessageId < dataLength) {
+          for (var i = 0; i < unshownMsges; i++) {
+            $('#messages-board').prepend('<li>' + data[currentMessageId].message + '</li>');
+            currentMessageId += 1;
+            unshownMsges -= 1;
+          }
+          unshownMsges = 0;
+        } else if (currentMessageCount == 0) {
+          $('#messages-board').prepend('<li>' + data[dataLength - 1].message + '</li>');
+          currentMessageCount = 1;
+          currentMessageId = dataLength;
+        }
+      },
+      error: function (error) {
+        console.log('Error:', error);
+      }
+    });
+  }, 2000); // 5 seconds
 
 }); // END of Document Ready
 

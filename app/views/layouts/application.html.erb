@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project4Rails</title>
+    <title>Tow Kay Huat!</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,7 +12,7 @@
 
   <body>
     <!-- User Nav Bar -->
-    <div class="ui blue secondary stackable inverted menu">
+    <div class="ui blue secondary stackable inverted menu" id="navBar">
       <a class="item" href="/">
         <%= image_tag "fishIcon.png" %>
       </a>
@@ -74,9 +74,16 @@
       <% end %>
     </div>
       <%= render "partials/flash" %>
-      <div class="ui centered grid">
-        <%= yield %>
+
+      <div class="ui container">
+        <div class="ui centered grid">
+
+          <%= yield %>
+
+        </div>
       </div>
+
+
   </body>
 </html>
 
