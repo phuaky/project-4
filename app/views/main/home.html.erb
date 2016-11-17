@@ -1,9 +1,13 @@
 <!-- Message Board -->
-<div class="row messages" style="overflow:scroll; height:100px;">
-  <h3>Latest Action:</h3>
-  <ul id="messages-board">
-    <!-- Prepend latest messages here -->
-  </ul>
+<div class="ui centered grid messages">
+  <div class="ui row">
+    <h3>Latest Action:</h3>
+  </div>
+  <div class="ui row">
+    <ul id="messages-board" style="overflow:scroll; height:100px;">
+      <!-- Prepend latest messages here -->
+    </ul>
+  </div>
 </div>
 <div class="row">
   <div class="ui search">
@@ -30,7 +34,7 @@ var content = [
     <div class="image">
       <%= cl_image_tag(fish.image, :width=>600, :height=>400, :crop=>"fill") %>
     </div>
-    <div class="content">
+    <div class="content" id="content">
       <a class="header"><%= fish.english %> | <%= fish.malay %> | <%= fish.chinese %></a>
       <div class="meta">
         <span class="volume">Volume:
@@ -41,7 +45,7 @@ var content = [
         </span>
       </div>
       <% if @customer %>
-        <div class="ui bottom attached button addToCart" value="<%= fish.id %>">
+        <div class="ui bottom attached red button addToCart" value="<%= fish.id %>">
           <i class="add to cart icon"></i>
           Add Tambah 加
         </div>

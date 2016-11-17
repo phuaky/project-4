@@ -24,8 +24,9 @@ body {
   background-image: url("fish_icon.png");
 }
 
-.messages {
-  border: 5px solid #E08DAC;
+#messages-board {
+  padding: 1%;
+  border: 5px dashed #CD5360;
 }
 
 #messages-board li:nth-child(odd) {
@@ -33,9 +34,18 @@ body {
 }
 
 #navBar {
-  background-color: #76E5FC;
+  background-color: #438496;
 }
 
-.segment {
-  
+.ui.attached.button {
+  margin: 3%;
+}
+
+#content {
+  background: #438496;
+}
+
+.ui.cards > .card .meta, .ui.card .meta {
+  color: white;
+
 }

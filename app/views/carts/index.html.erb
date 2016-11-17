@@ -9,6 +9,10 @@
               </button>
               <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>" data-description="Total Amount" data-amount="200000" data-locale="auto"></script>
           </div>
+          <% else %>
+            <div class="text container">
+              Your cart is empty... Add some prawns, its fresh and sweet!
+            </div>
           <% end %>
           <% @carts.each do |cart| %>
           <input type="hidden" name="purchase[cart_id][]" value="<%= cart.id %>">
